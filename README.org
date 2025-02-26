@@ -1,1 +1,12 @@
 * Simple Python Automation
+- [ ] Pick base image
+- [ ] Build initial docker image for different python versions
+- [ ] Set up github actions for building image
+- [ ] Set up github actions for building helm package
+- [ ] Mode: Deployment
+- [ ] Mode: DaemonSet
+- [ ] Mode: CronJob
+- [ ] Mode: Job
+- [ ] Example script with allowing multiple scripts
+- [ ] Optional probes
+- [ ] Default locked down security context
