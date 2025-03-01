@@ -1,6 +1,6 @@
 FROM python:alpine3.21
 
-RUN pip install --no-cache-dir kubernetes
+RUN pip install --no-cache-dir kubernetes prometheus_client
 
 USER 1000
 
