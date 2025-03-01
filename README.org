@@ -1,7 +1,7 @@
 * Simple Python Automation
-- [ ] Pick base image
-- [ ] Build initial docker image for different python versions
-- [ ] Set up github actions for building image
+- [X] Pick base image
+- [X] Build initial docker image
+- [X] Set up github actions for building image
 - [ ] Set up github actions for building helm package
 - [ ] Mode: Deployment
 - [ ] Mode: DaemonSet
