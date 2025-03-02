@@ -1,5 +1,112 @@
 ---
+# Script to be executed. main.py key is used as an entrypoint.
+script:
+  main.py: |
+    import os
+    import time
+    from kubernetes import client, config
 
+    config.load_incluster_config()
+
+    v1 = client.CoreV1Api()
+    print("Listing pods with their IPs:")
+    while True:
+      ret = v1.list_namespaced_pod(os.environ["__NAMESPACE"], watch=False)
+      for i in ret.items:
+          print(f"{i.status.pod_ip}, {i.metadata.name}")
+      time.sleep(10)
+
+# Set workload mode
+# Available options:
+## deployment
+## daemonset
+## cronjob
+## job
+mode: deployment
+
+# Settings for type deployment
+deployment:
+  replicas: 1
+  strategy: {}
+
+# Settings for type daemonset
+daemonset:
+
+# Settings for type cronjob
+cronjob:
+
+# Settings for type job
+job:
+
+# Image options
+image: schrenker/simple-python-automation:latest
+imagePullPolicy: IfNotPresent
+imagePullSecrets: []
+
+# Ports exposed by the pod
+ports: []
+  # - name: http
+  #   containerPort: 8080
+  #   protocol: TCP
+
+# Environment variables list
+# Note that there are default environment variables defined
+## __PODNAME is set to current pod name
+## __NAMESPACE is set to current pod namespace
+## PYTHONUNBUFFERED is set to 1 to flush logs to stdout immediately
+env: []
+  # - name: envVar
+  #   value: envVarValue
+
+# Object to load environment variables from
+envFrom: []
+  # - configMapRef:
+  #     name: envVarCM
+  # - secretRef:
+  #     name: envVarSecret
+
+# Set resource requests and limits for a pod
+resources: {}
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # limits:
+  #   memory: 128Mi
+
+# Labels for a pod
+podLabels: {}
+  # app: appName
+  # env: prod
+
+# Annotations for a pod
+podAnnotations: {}
+  # prometheus.io/scrape: "true"
+  # prometheus.io/port: "8080"
+
+# Probe configuration
+startupProbe: {}
+livenessProbe: {}
+readinessProbe: {}
+
+# Volume configuration
+volumeMounts: []
+volumes: []
+
+# Scheduling configuration
+nodeSelector: {}
+affinity: {}
+tolerations: []
+
+# Security configuration
+podSecurityContext: {}
+securityContext:
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
+
+# RBAC configuration
 rbac:
   # Create RBAC objects
   create: true
