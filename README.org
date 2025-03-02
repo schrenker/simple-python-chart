@@ -2,11 +2,12 @@
 - [X] Pick base image
 - [X] Build initial docker image
 - [X] Set up github actions for building image
-- [ ] Set up github actions for building helm package
+- [X] Setup RBAC
 - [ ] Mode: Deployment
 - [ ] Mode: DaemonSet
 - [ ] Mode: CronJob
 - [ ] Mode: Job
+- [ ] Set up github actions for building helm package
 - [ ] Example script with allowing multiple scripts
 - [ ] Optional probes
 - [ ] Default locked down security context

@@ -1,0 +1,17 @@
+---
+
+rbac:
+  # Create RBAC objects
+  create: true
+
+  # Permission scope
+  # false: Create role/roleBinding
+  # true:  Create clusterRole/clusterRoleBinding
+  clusterWide: false
+
+  # Permissions applied
+  # Allow looking at pods by default
+  rules:
+    - apiGroups: [""]
+      resources: ["pods"]
+      verbs: ["get", "list", "watch"]

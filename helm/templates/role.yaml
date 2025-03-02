@@ -1,0 +1,14 @@
+{{- if .Values.rbac.create }}
+{{- if not .Values.rbac.clusterWide }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "helm.labels" . | nindent 4 }}
+rules:
+  {{- toYaml .Values.rbac.rules | nindent 2 }}
+{{- end }}
+{{- end }}
