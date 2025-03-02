@@ -31,6 +31,8 @@ deployment:
 
 # Settings for type daemonset
 daemonset:
+  scheduleOnControlPlane: true
+  updateStrategy: {}
 
 # Settings for type cronjob
 cronjob:
