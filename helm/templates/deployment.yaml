@@ -34,6 +34,9 @@ spec:
       {{- end }}
       {{- if .Values.rbac.create }}
       serviceAccountName: {{ .Release.Name }}
+      {{- else }}
+      serviceAccountName: default
+      automountServiceAccountToken: false
       {{- end }}
       {{- with .Values.podSecurityContext }}
       securityContext:
