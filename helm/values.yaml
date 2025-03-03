@@ -39,6 +39,17 @@ cronjob:
 
 # Settings for type job
 job:
+  # Start up new job on each upgrade, replacing previous one. This spawns job with revision number in it's name
+  replaceOnUpgrade: true
+  restartPolicy: Never
+  # Job spec, that is directly templated into job.spec for granular control options
+  # This should only contain spec configuration, and should not include template key
+  spec: {}
+    #activeDeadlineSeconds: 300
+    #backoffLimit: 6
+    #completions: 1
+    #parallelism: 1
+    #ttlSecondsAfterFinished: 3600
 
 # Image options
 image: schrenker/simple-python-automation:latest
