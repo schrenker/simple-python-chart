@@ -26,8 +26,10 @@ mode: deployment
 
 # Settings for type deployment
 deployment:
-  replicas: 1
-  strategy: {}
+  # Deployment spec, that is directly templated into deployment.spec
+  spec: {}
+    # replicas: 1
+    # strategy: Recreate
 
 # Settings for type daemonset
 daemonset:

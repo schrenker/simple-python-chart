@@ -8,13 +8,11 @@ metadata:
   labels:
     {{- include "helm.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
       {{- include "helm.selectorLabels" . | nindent 6 }}
-  {{- with .Values.deployment.strategy }}
-  strategy:
-    {{- toYaml . | nindent 4 }}
+  {{- with .Values.deployment.spec }}
+    {{- toYaml . | nindent 2 }}
   {{- end }}
   template:
     metadata:
