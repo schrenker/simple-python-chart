@@ -38,20 +38,39 @@ daemonset:
 
 # Settings for type cronjob
 cronjob:
+  schedule: "0 * * * *"
+  restartPolicy: Never
+  # CronJob spec, that is directly templated into cronjob.spec
+  # This should only contain spec configuration
+  cronjobSpec: {}
+    # successfulJobsHistoryLimit: 3
+    # failedJobsHistoryLimit: 1
+    # startingDeadlineSeconds: 300
+    # timeZone: "Etc/UTC"
+  # Job spec, that is directly templated into cronjob.spec.jobTemplate.spec
+  # This should only contain spec configuration; should not include template key
+  jobSpec: {}
+    # activeDeadlineSeconds: 300
+    # backoffLimit: 6
+    # completions: 1
+    # parallelism: 1
+    # ttlSecondsAfterFinished: 3600
+
 
 # Settings for type job
 job:
-  # Start up new job on each upgrade, replacing previous one. This spawns job with revision number in it's name
+  # Start up new job on each upgrade, replacing previous one.
+  # This spawns job with revision number in it's name
   replaceOnUpgrade: true
   restartPolicy: Never
-  # Job spec, that is directly templated into job.spec for granular control options
-  # This should only contain spec configuration, and should not include template key
+  # Job spec, that is directly templated into job.spec
+  # This should only contain spec configuration; should not include template key
   spec: {}
-    #activeDeadlineSeconds: 300
-    #backoffLimit: 6
-    #completions: 1
-    #parallelism: 1
-    #ttlSecondsAfterFinished: 3600
+    # activeDeadlineSeconds: 300
+    # backoffLimit: 6
+    # completions: 1
+    # parallelism: 1
+    # ttlSecondsAfterFinished: 3600
 
 # Image options
 image: schrenker/simple-python-automation:latest
