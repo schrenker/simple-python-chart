@@ -88,7 +88,7 @@ spec:
           {{- end }}
           volumeMounts:
             - name: script
-              mountPath: /tmp
+              mountPath: {{ .Values.scriptDir }}
           {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}

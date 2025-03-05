@@ -4,6 +4,6 @@ RUN pip install --no-cache-dir kubernetes prometheus_client
 
 USER 1000
 
-WORKDIR /tmp
+WORKDIR /script
 
-ENTRYPOINT ["python3", "/tmp/main.py"]
+ENTRYPOINT ["python3", "/script/main.py"]

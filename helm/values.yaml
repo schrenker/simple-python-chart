@@ -16,6 +16,9 @@ script:
           print(f"{i.status.pod_ip}, {i.metadata.name}")
       time.sleep(10)
 
+# Path where script configMap is mounted
+scriptDir: /script
+
 # Set workload mode
 # Available options:
 ## deployment
