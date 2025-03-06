@@ -2,4 +2,4 @@ apiVersion: v2
 name: simple-python-automation
 description: Quick setup for in-cluster kubernetes automation using Python scripts
 type: application
-version: 0.1.1
+version: 0.1.2
