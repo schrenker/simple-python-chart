@@ -1,13 +1,26 @@
-* Simple Python Automation
-- [X] Pick base image
-- [X] Build initial docker image
-- [X] Set up github actions for building image
-- [X] Setup RBAC
-- [X] Mode: Deployment
-- [X] Mode: DaemonSet
-- [X] Mode: CronJob
-- [X] Mode: Job
-- [ ] Set up github actions for building helm package
-- [ ] Example script with allowing multiple scripts
-- [X] Optional probes
-- [X] Default locked down security context
+* Simple Python Chart
+
+** Why
+This chart contains mostly everything that is needed to run simple python scripts within Kubernetes environment. The goal is to simplify running small scripts, without needing to build separate container images, or define boilerplate yaml definitions for every usecase.
+
+** Examples
+There is an example directory, that contains some functionalities that can be achieved with this chart. The directory will grow over time. Some simple ideas that can be done with just single python script:
+- Cleanup of bare/failed/other pods
+- Cleanup of other unnecessary resources
+- Cloning resources between namespaces (ex: secrets)
+- Prometheus exporters
+- Host access PV management (ex: log access)
+
+** Installation
+#+begin_src bash
+# Add repository
+helm repo add simple-python https://schrenker.github.io/simple-python-chart/
+
+# Install
+helm install my-simple-python simple-python/simple-python
+#+end_src
+
+** Image
+Default image used in chart is the one built from Dockerfile in the project. It contains prometheus_client as well as kubernetes.
+
+The default image is very barebones, and I strongly recommend building your own image with whatever dependencies you require.
