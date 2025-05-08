@@ -146,7 +146,7 @@ securityContext:
 # RBAC configuration
 rbac:
   # Create RBAC objects
-  create: true
+  enable: true
 
   # Permission scope
   # false: Create role/roleBinding
