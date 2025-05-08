@@ -1,13 +1,12 @@
-* Simple Python Automation
-- [X] Pick base image
-- [X] Build initial docker image
-- [X] Set up github actions for building image
-- [X] Setup RBAC
-- [X] Mode: Deployment
-- [X] Mode: DaemonSet
-- [X] Mode: CronJob
-- [X] Mode: Job
-- [ ] Set up github actions for building helm package
-- [ ] Example script with allowing multiple scripts
-- [X] Optional probes
-- [X] Default locked down security context
+* Simple Python Chart
+
+** Why
+This chart contains mostly everything that is needed to run simple python scripts within Kubernetes environment. The goal is to simplify running small scripts, without needing to build separate container images, or define boilerplate yaml definitions for every usecase.
+
+** Examples
+There is an example directory, that contains some functionalities that can be achieved with this chart. The directory will grow over time. Some simple ideas that can be done with just single python script:
+- Cleanup of bare/failed/other pods
+- Cleanup of other unnecessary resources
+- Cloning resources between namespaces (ex: secrets)
+- Prometheus exporters
+- Host access PV management (ex: log access)
