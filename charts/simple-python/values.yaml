@@ -76,7 +76,7 @@ job:
     # ttlSecondsAfterFinished: 3600
 
 # Image options
-image: schrenker/simple-python-automation:latest
+image: schrenker/simple-python:latest
 imagePullPolicy: IfNotPresent
 imagePullSecrets: []
 
