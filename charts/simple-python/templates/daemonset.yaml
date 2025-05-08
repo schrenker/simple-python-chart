@@ -31,7 +31,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if .Values.rbac.create }}
+      {{- if .Values.rbac.enable }}
       serviceAccountName: {{ .Release.Name }}
       {{- else }}
       serviceAccountName: default
