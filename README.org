@@ -10,3 +10,17 @@ There is an example directory, that contains some functionalities that can be ac
 - Cloning resources between namespaces (ex: secrets)
 - Prometheus exporters
 - Host access PV management (ex: log access)
+
+** Installation
+#+begin_src bash
+# Add repository
+helm repo add simple-python https://schrenker.github.io/simple-python-chart/
+
+# Install
+helm install my-simple-python simple-python/simple-python
+#+end_src
+
+** Image
+Default image used in chart is the one built from Dockerfile in the project. It contains prometheus_client as well as kubernetes.
+
+The default image is very barebones, and I strongly recommend building your own image with whatever dependencies you require.
