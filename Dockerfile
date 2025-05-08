@@ -1,4 +1,4 @@
-FROM python:alpine3.21
+FROM python:alpine3.21.3
 
 RUN pip install --no-cache-dir kubernetes prometheus_client
 
