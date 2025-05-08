@@ -5,16 +5,16 @@ Helm's [documentation](https://helm.sh/docs) to get started.
 
 Once Helm has been set up correctly, add the repo as follows:
 
-  helm repo add simple-python-automation https://schrenker.github.io/simple-python-automation-helm-chart
+  helm repo add simple-python https://schrenker.github.io/simple-python-chart
 
 If you had already added this repo earlier, run `helm repo update` to retrieve
 the latest versions of the packages.  You can then run `helm search repo
-simple-python-automation` to see the charts.
+simple-python` to see the charts.
 
-To install the simple-python-automation chart:
+To install the simple-python:
 
-    helm install my-simple-python-automation simple-python-automation/simple-python-automation
+    helm install my-simple-python simple-python/simple-python
 
 To uninstall the chart:
 
-    helm uninstall my-simple-python-automation
+    helm uninstall my-simple-python
